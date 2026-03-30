@@ -1,0 +1,14 @@
+# セーブデータ
+game-state/save.md
+
+# バトルちゅうデータ
+game-state/battle-current.md
+
+# バトルりれき（README.mdはのこす）
+game-state/battles/[0-9]*.md
+
+# てもちモンスター（README.mdはのこす）
+.claude/agents/my-monsters/[0-9]*.md
+
+# Claude Code ローカルせってい
+.claude/settings.local.json
