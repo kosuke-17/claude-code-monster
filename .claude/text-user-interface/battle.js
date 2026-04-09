@@ -4,7 +4,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const PROJ = path.resolve(__dirname, "..");
+const PROJ = path.resolve(__dirname, "../..");
 const SAVE = path.join(PROJ, "game-state/save.md");
 const BATTLE = path.join(PROJ, "game-state/battle-current.md");
 const MONSTERS_DIR = path.join(PROJ, ".claude/agents/my-monsters");
