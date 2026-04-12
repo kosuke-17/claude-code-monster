@@ -83,56 +83,126 @@ function statusIcons(status) {
 
 function aaSprite(species, indent) {
   const lines = {
+    // ヒノコ: 丸い体、炎の頭、クリーム色のお腹、小さい角
     ヒノコ: [
-      `${c.BR}╭─╮${c.RESET}`,
-      `${c.BR}(${c.BY}◕${c.BR}ᴗ${c.BY}◕${c.BR})${c.RESET}`,
-      `${c.DIM}${c.R}/|${c.RESET}${c.BR}▲${c.DIM}${c.R}|\\${c.RESET}`,
+      `      ${c.BY}(${c.BR}*${c.BY})${c.RESET}`,
+      `    ${c.BR}▄${c.R}╭───╮${c.BR}▄${c.RESET}`,
+      `    ${c.R}(${c.BY}◕${c.R} ᴗ ${c.BY}◕${c.R})${c.RESET}`,
+      `   ${c.R}╭${c.BR}╰───╯${c.R}╮${c.RESET}`,
+      `  ${c.DIM}${c.R}▐${c.RESET}${c.R}(${c.BY}▓▓▓${c.R})${c.DIM}▌${c.RESET}`,
+      `   ${c.R}╰─┘ └─╯${c.RESET}`,
+      `    ${c.DIM}${c.R}▝▘   ▝▘${c.RESET}`,
     ],
+    // エンカザン: ヒノコの進化形、より大きく、角が長い、お腹が暗い、牙あり
     エンカザン: [
-      `${c.BR}╭─╮${c.RESET}`,
-      `${c.BR}(${c.BY}◕${c.BR}ᴗ${c.BY}◕${c.BR})${c.RESET}`,
-      `${c.DIM}${c.R}/|${c.RESET}${c.BR}▲${c.DIM}${c.R}|\\${c.RESET}`,
+      `      ${c.BY}(${c.BR}▲${c.BY})${c.RESET}`,
+      `     ${c.DIM}${c.R}┃${c.RESET}${c.R}▄▄▄${c.DIM}┃${c.RESET}`,
+      `   ${c.BR}▄${c.R}╭─────╮${c.BR}▄${c.RESET}`,
+      `   ${c.R}(${c.BY}◕${c.R} ▿ ${c.BY}◕${c.R})${c.RESET}`,
+      `  ${c.R}╭${c.BR}╰──┬──╯${c.R}╮${c.RESET}`,
+      ` ${c.DIM}${c.R}▐${c.RESET}${c.R}(${c.DIM}${c.R}▓▓${c.BR}▓${c.DIM}${c.R}▓▓${c.R})${c.DIM}▌${c.RESET}`,
+      `  ${c.R}╰──┘ └──╯${c.RESET}`,
+      `   ${c.DIM}${c.R}▝▘     ▝▘${c.RESET}`,
     ],
+    // ミズチ: 青い体、水滴の頭、ヒレ耳、白いお腹、しっぽ
     ミズチ: [
-      `${c.BB}╭─╮${c.RESET}`,
-      `${c.BB}(${c.BC}◕${c.BB}ω${c.BC}◕${c.BB})${c.RESET}`,
-      `${c.DIM}${c.B}~|${c.RESET}${c.BB}◇${c.DIM}${c.B}|~${c.RESET}`,
+      `     ${c.BC}💧${c.RESET}`,
+      `    ${c.BB}╭───╮${c.RESET}`,
+      `   ${c.B}◁${c.BB}(${c.BW}◕${c.BB}‿${c.BW}◕${c.BB})${c.B}▷${c.RESET}`,
+      `   ${c.BB}╭╰───╯╮${c.RESET}${c.BC}~${c.RESET}`,
+      `  ${c.DIM}${c.B}▐${c.RESET}${c.BB}(${c.BW}▒▒▒${c.BB})${c.DIM}▌${c.BC}~${c.RESET}`,
+      `   ${c.BB}╰─┘ └─╯${c.RESET}`,
+      `    ${c.DIM}${c.B}▝▘   ▝▘${c.RESET}`,
     ],
+    // リュウカイ: ミズチの進化形、角やヒレが大きく、しっぽが長い
     リュウカイ: [
-      `${c.BB}╭─╮${c.RESET}`,
-      `${c.BB}(${c.BC}◕${c.BB}ω${c.BC}◕${c.BB})${c.RESET}`,
-      `${c.DIM}${c.B}~|${c.RESET}${c.BB}◇${c.DIM}${c.B}|~${c.RESET}`,
+      `     ${c.B}╱${c.BB}▲${c.B}╲${c.RESET}`,
+      `   ${c.B}◁${c.BB}╭─────╮${c.B}▷${c.RESET}`,
+      `   ${c.BB}(${c.BW}◕${c.BB}  ‿ ${c.BW}◕${c.BB})${c.RESET}`,
+      `  ${c.BB}╭${c.B}╰─────╯${c.BB}╮${c.BC}~~${c.RESET}`,
+      ` ${c.DIM}${c.B}▐${c.RESET}${c.BB}( ${c.BW}▒▒▒${c.BB} )${c.DIM}▌${c.BC}~~${c.RESET}`,
+      `  ${c.BB}╰──┘ └──╯${c.BC}~${c.RESET}`,
+      `   ${c.DIM}${c.B}▝▘     ▝▘${c.RESET}`,
     ],
+    // ツボミン: 緑の丸い体、ピンクのつぼみの頭、クリーム色のお腹、しっぽ
     ツボミン: [
-      `${c.BG}╭🌱╮${c.RESET}`,
-      `${c.BG}(${c.G}◕${c.BG}‿${c.G}◕${c.BG})${c.RESET}`,
-      `${c.DIM}${c.G}~|${c.RESET}${c.BG}♣${c.DIM}${c.G}|~${c.RESET}`,
+      `     ${c.BM}╱▼╲${c.RESET}`,
+      `    ${c.BG}╭───╮${c.RESET}`,
+      `   ${c.G}◦${c.BG}(${c.G}◕${c.BG}‿${c.G}◕${c.BG})${c.G}◦${c.RESET}`,
+      `   ${c.BG}╭╰───╯╮${c.G}~${c.RESET}`,
+      `   ${c.BG}(${c.BY}▒▒▒${c.BG})${c.DIM}│${c.RESET}`,
+      `   ${c.BG}╰─┘ └─╯${c.RESET}`,
+      `    ${c.DIM}${c.G}▝▘   ▝▘${c.RESET}`,
     ],
+    // ハナサウル: ツボミンの進化形（中間）— 未使用だが定義
     ハナサウル: [
-      `${c.BG}╭🌱╮${c.RESET}`,
-      `${c.BG}(${c.G}◕${c.BG}‿${c.G}◕${c.BG})${c.RESET}`,
-      `${c.DIM}${c.G}~|${c.RESET}${c.BG}♣${c.DIM}${c.G}|~${c.RESET}`,
+      `    ${c.BM}╱${c.M}▲▲${c.BM}╲${c.RESET}`,
+      `   ${c.BG}╭─────╮${c.RESET}`,
+      `  ${c.G}◦${c.BG}(${c.G}◕${c.BG} ‿ ${c.G}◕${c.BG})${c.G}◦${c.RESET}`,
+      `  ${c.BG}╭${c.G}╰─────╯${c.BG}╮${c.G}~${c.RESET}`,
+      `  ${c.BG}(${c.BY} ▒▒▒ ${c.BG})${c.DIM}│${c.RESET}`,
+      `  ${c.BG}╰──┘ └──╯${c.RESET}`,
+      `   ${c.DIM}${c.G}▝▘     ▝▘${c.RESET}`,
     ],
+    // モリヌシ: 茶色い体、緑のキノコ帽子にピンクの花、緑の腕先の葉
     モリヌシ: [
-      `${c.BG}╭🌱╮${c.RESET}`,
-      `${c.BG}(${c.G}◕${c.BG}‿${c.G}◕${c.BG})${c.RESET}`,
-      `${c.DIM}${c.G}~|${c.RESET}${c.BG}♣${c.DIM}${c.G}|~${c.RESET}`,
+      `    ${c.BG}▄██▄${c.RESET}`,
+      `   ${c.G}▟${c.BM}✿${c.BG}██${c.BM}✿${c.G}▙${c.RESET}`,
+      `   ${c.Y}╭─────╮${c.RESET}`,
+      `   ${c.Y}(${c.G}◕${c.Y} ‿ ${c.G}◕${c.Y})${c.RESET}`,
+      `  ${c.BG}▸${c.Y}╰─────╯${c.BG}◂${c.RESET}`,
+      `  ${c.Y}( ${c.BG}◉${c.G}▓▓${c.BG}◉${c.Y} )${c.RESET}`,
+      `  ${c.Y}╰──┘ └──╯${c.RESET}`,
+      `   ${c.DIM}${c.Y}▝▘     ▝▘${c.RESET}`,
     ],
+    // ゴロツキ: 灰茶色の丸い体、耳が立っている、ベージュのお腹、しっぽ
     ゴロツキ: [
-      `${c.DIM}${c.W}╭─╮${c.RESET}`,
-      `${c.W}(${c.R}°${c.W}ω${c.R}°${c.W})${c.RESET}`,
-      `${c.DIM}${c.W}/|${c.RESET}${c.W}人${c.DIM}|\\${c.RESET}`,
+      `    ${c.W}╱▲ ▲╲${c.RESET}`,
+      `    ${c.W}╭───╮${c.RESET}`,
+      `    ${c.W}(${c.BY}◕${c.W}ω${c.BY}◕${c.W})${c.RESET}`,
+      `   ${c.DIM}▐${c.RESET}${c.W}╰───╯${c.DIM}▌${c.W}~${c.RESET}`,
+      `   ${c.W}(${c.BY}▒▒▒${c.W})│${c.RESET}`,
+      `   ${c.W}╰─┘ └─╯${c.RESET}`,
+      `    ${c.DIM}▝▘   ▝▘${c.RESET}`,
     ],
+    // ケモノビト: ゴロツキの進化形、より大きく、耳が鋭い、しっぽが長い
+    ケモノビト: [
+      `   ${c.W}╱▲   ▲╲${c.RESET}`,
+      `   ${c.W}╭─────╮${c.RESET}`,
+      `   ${c.W}(${c.BY}◕${c.W} ω ${c.BY}◕${c.W})${c.RESET}`,
+      `  ${c.DIM}▐${c.RESET}${c.W}╰─────╯${c.DIM}▌${c.W}~~${c.RESET}`,
+      `  ${c.W}( ${c.BY}▒▒▒${c.W} )${c.W}~~${c.RESET}`,
+      `  ${c.W}╰──┘ └──╯${c.RESET}`,
+      `   ${c.DIM}▝▘     ▝▘${c.RESET}`,
+    ],
+    // ビリネズ: 黄色い丸いネズミ、大きな丸い耳、ヒゲ、雷マーク
     ビリネズ: [
-      `${c.BY}⚡╭─╮${c.RESET}`,
-      `${c.BY}(${c.BW}·${c.BY}ω${c.BW}·${c.BY})${c.RESET}`,
-      `${c.DIM}${c.BY}~│${c.RESET}${c.BY}△${c.DIM}│~${c.RESET}`,
+      `    ${c.BY}╭◖  ◗╮${c.RESET}`,
+      `    ${c.BY}╭───╮${c.RESET}`,
+      `   ${c.BY}═${c.BY}(${c.BW}◕${c.BY}ω${c.BW}◕${c.BY})═${c.RESET}`,
+      `    ${c.BY}╰───╯${c.BY}⚡${c.RESET}`,
+      `    ${c.BY}(${c.Y}▒▒▒${c.BY})${c.RESET}`,
+      `    ${c.BY}╰─┘└─╯${c.RESET}`,
+      `     ${c.DIM}${c.BY}▝▘ ▝▘${c.RESET}`,
+    ],
+    // ライコウモリ: 紫の体、アンテナ2本、翼（コウモリの羽）、雷マーク、牙
+    ライコウモリ: [
+      `    ${c.W}│${c.BM}▲${c.W}│${c.RESET}`,
+      `    ${c.BM}╭───╮${c.RESET}`,
+      `    ${c.BM}(${c.BY}◕${c.M}⚡${c.BY}◕${c.BM})${c.RESET}`,
+      `  ${c.M}▟▛${c.BM}╰───╯${c.M}▜▙${c.RESET}`,
+      `  ${c.M}▀▘${c.BM}(${c.BW}▒▒▒${c.BM})${c.M}▝▀${c.RESET}`,
+      `    ${c.BM}╰─┘└─╯${c.RESET}`,
+      `     ${c.DIM}${c.M}▝▘ ▝▘${c.RESET}`,
     ],
   };
   const sprite = lines[species] || [
-    `${c.DIM}╭─╮${c.RESET}`,
-    `${c.W}(°□°)${c.RESET}`,
-    `${c.DIM}/| |\\${c.RESET}`,
+    `    ${c.DIM}╭───╮${c.RESET}`,
+    `    ${c.W}(°□°)${c.RESET}`,
+    `   ${c.DIM}╭╰───╯╮${c.RESET}`,
+    `   ${c.W}( ▒▒▒ )${c.RESET}`,
+    `   ${c.DIM}╰─┘ └─╯${c.RESET}`,
+    `    ${c.DIM}▝▘   ▝▘${c.RESET}`,
   ];
   sprite.forEach((l) => process.stdout.write(indent + l + "\n"));
 }
